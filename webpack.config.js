@@ -1,18 +1,6 @@
-const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-
-console.log("aaaa", __dirname + "/diysna/public");
 module.exports = {
-  devtool: "eval-source-map",
-  entry: __dirname + "/diysna/static/index.js",
-  output: {
-    path: __dirname + "/diysna/public",
-    filename: "main.js",
-    publicPath: __dirname + "/diysna/public"
-  },
-  resolve: {
-    extensions: [".js", ".jsx", ".css"]
-  },
+  entry: __dirname + "/diysna/static/src",
   module: {
     rules: [
       {
@@ -34,8 +22,17 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./diysna/static/index.html",
-      filename: "./diysna/static/index.html"
+      template: "./diysna/static/src/index.html",
+      filename: "./index.html"
     })
   ]
 };
+
+/*
+ entry: __dirname + "/diysna/static/index.js",
+  output: {
+    path: __dirname + "/diysna/public",
+    filename: "main.js",
+    publicPath: __dirname + "/diysna/public"
+  },
+  */
