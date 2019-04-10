@@ -12,9 +12,10 @@ class Query(graphene.ObjectType):
 
 schema = graphene.Schema(query=Query)
 
-app = Flask(__name__,
-            static_folder='./public',
-            template_folder="./static")
+app = Flask(__name__)
+# app = Flask(__name__,
+#            static_folder='./public',
+#            template_folder="./static")
 
 app.add_url_rule(
     '/graphql', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True))

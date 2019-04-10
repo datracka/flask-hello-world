@@ -1,6 +1,17 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+var path = require("path");
+
+console.log(path.join(__dirname, "/diysna/templates"));
 module.exports = {
-  entry: __dirname + "/diysna/static/src",
+  output: {
+    path: __dirname + "/diysna/static",
+    filename: "main.js",
+    publicPath: __dirname + "/diysna/static"
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "/diysna/templates"),
+    compress: true,
+    port: 9000
+  },
   module: {
     rules: [
       {
@@ -19,20 +30,5 @@ module.exports = {
         ]
       }
     ]
-  },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: "./diysna/static/src/index.html",
-      filename: "./index.html"
-    })
-  ]
+  }
 };
-
-/*
- entry: __dirname + "/diysna/static/index.js",
-  output: {
-    path: __dirname + "/diysna/public",
-    filename: "main.js",
-    publicPath: __dirname + "/diysna/public"
-  },
-  */

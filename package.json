@@ -6,8 +6,10 @@
   "author": "Vicens Fayos <datracka@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "watch": "webpack --progress -d --watch",
     "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "server": "pipenv run python app.py"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
