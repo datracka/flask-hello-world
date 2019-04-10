@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_graphql import GraphQLView
 import graphene
 
@@ -12,15 +12,17 @@ class Query(graphene.ObjectType):
 
 schema = graphene.Schema(query=Query)
 
-app = Flask(__name__)
+app = Flask(__name__,
+            static_folder='./public',
+            template_folder="./static")
 
 app.add_url_rule(
     '/graphql', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True))
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello to the World of Flask!'
+def index():
+    return render_template("index.html")
 
 
 if __name__ == '__main__':
