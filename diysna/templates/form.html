@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+    />
+    <title>Form example!</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message[1] }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    <form action="" method="post">
+      {{ form.csrf }}
+      <div class="input text">{{ form.keyword.label }} {{ form.keyword }}</div>
+      <div class="input text">{{ form.dt(class='datepicker') }}</div>
+      <div class="input submit">
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </body>
+</html>

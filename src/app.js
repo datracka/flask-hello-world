@@ -1,3 +1,3 @@
 import React from "react";
 
-export default () => <div>React App 14!</div>;
+export default () => <div>React App!</div>;

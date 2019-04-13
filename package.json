@@ -9,7 +9,7 @@
     "watch": "webpack --progress -d --watch",
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
-    "server": "pipenv run python app.py"
+    "serve": "pipenv run python app.py"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
